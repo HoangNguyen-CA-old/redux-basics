@@ -1,27 +1,27 @@
-import { ADD_RESULT, REMOVE_RESULT } from '../actionTypes';
+import { ADD_HISTORY, REMOVE_HISTORY } from '../actionTypes';
 
 const initialState = {
-  results: [],
+  history: [],
 };
 
 const reducer = (state = initialState, action) => {
   let payload = action.payload;
-  let newResult;
+  let newHistory;
   switch (action.type) {
-    case ADD_RESULT:
-      newResult = [
-        ...state.results,
+    case ADD_HISTORY:
+      newHistory = [
+        ...state.history,
         { id: Math.random() * 10000000, value: payload.value },
       ];
       return {
         ...state,
-        results: newResult,
+        history: newHistory,
       };
-    case REMOVE_RESULT:
-      newResult = state.results.filter((res) => res.id !== payload.id);
+    case REMOVE_HISTORY:
+      newHistory = state.history.filter((res) => res.id !== payload.id);
       return {
         ...state,
-        results: newResult,
+        history: newHistory,
       };
 
     default:

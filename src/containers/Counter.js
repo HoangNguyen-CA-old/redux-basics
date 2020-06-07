@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Controls from '../components/Controls';
-import Results from '../components/Results';
+import History from '../components/History';
 
 import {
   INCREMENT,
   DECREMENT,
-  ADD_RESULT,
-  REMOVE_RESULT,
+  ADD_HISTORY,
+  REMOVE_HISTORY,
 } from '../store/actionTypes';
 
 class Counter extends Component {
@@ -19,13 +19,13 @@ class Counter extends Component {
           onIncrementCounter={this.props.onIncrementCounter}
           onDecrementCounter={this.props.onDecrementCounter}
         ></Controls>
-        <button onClick={() => this.props.addResult(this.props.counter)}>
+        <button onClick={() => this.props.addHistory(this.props.counter)}>
           Add
         </button>
-        <Results
-          results={this.props.results}
-          removed={this.props.removeResult}
-        ></Results>
+        <History
+          history={this.props.history}
+          removed={this.props.removeHistory}
+        ></History>
       </>
     );
   }
@@ -34,7 +34,7 @@ class Counter extends Component {
 const mapStateToProps = (state) => {
   return {
     counter: state.counter.counter,
-    results: state.results.results,
+    history: state.history.history,
   };
 };
 
@@ -42,8 +42,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onIncrementCounter: () => dispatch({ type: INCREMENT }),
     onDecrementCounter: () => dispatch({ type: DECREMENT }),
-    addResult: (value) => dispatch({ type: ADD_RESULT, payload: { value } }),
-    removeResult: (id) => dispatch({ type: REMOVE_RESULT, payload: { id } }),
+    addHistory: (value) => dispatch({ type: ADD_HISTORY, payload: { value } }),
+    removeHistory: (id) => dispatch({ type: REMOVE_HISTORY, payload: { id } }),
   };
 };
 

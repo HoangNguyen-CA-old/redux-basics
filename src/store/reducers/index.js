@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import counterReducer from './counter';
-import resultsReducer from './results';
+import historyReducer from './history';
 
 const rootReducer = combineReducers({
   counter: counterReducer,
-  results: resultsReducer,
+  history: historyReducer,
 });
 
 export default rootReducer;
