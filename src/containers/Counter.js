@@ -5,11 +5,11 @@ import History from '../components/History';
 import styled from 'styled-components';
 
 import {
-  INCREMENT,
-  DECREMENT,
-  ADD_HISTORY,
-  REMOVE_HISTORY,
-} from '../store/actionTypes';
+  increment,
+  decrement,
+  addHistory,
+  removeHistory,
+} from '../store/actions/actions';
 
 const Button = styled.button`
   background-color: white;
@@ -55,10 +55,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onIncrementCounter: () => dispatch({ type: INCREMENT }),
-    onDecrementCounter: () => dispatch({ type: DECREMENT }),
-    addHistory: (value) => dispatch({ type: ADD_HISTORY, payload: { value } }),
-    removeHistory: (id) => dispatch({ type: REMOVE_HISTORY, payload: { id } }),
+    onIncrementCounter: () => dispatch(increment()),
+    onDecrementCounter: () => dispatch(decrement()),
+    addHistory: (value) => dispatch(addHistory(value)),
+    removeHistory: (id) => dispatch(removeHistory(id)),
   };
 };
 
