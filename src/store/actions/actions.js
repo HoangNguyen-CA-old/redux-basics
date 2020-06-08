@@ -17,8 +17,17 @@ export const decrement = () => {
   };
 };
 
-export const addHistory = (value) => {
+export const saveHistory = (value) => {
   return { type: ADD_HISTORY, payload: { value } };
+};
+
+export const addHistory = (value) => {
+  //asynchronous
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(saveHistory(value));
+    }, 2000);
+  };
 };
 
 export const removeHistory = (id) => {

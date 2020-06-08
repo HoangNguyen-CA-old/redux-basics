@@ -35,7 +35,7 @@ class Counter extends Component {
           onDecrementCounter={this.props.onDecrementCounter}
         ></Controls>
         <Button onClick={() => this.props.addHistory(this.props.counter)}>
-          Add to History
+          Add to History (Async)
         </Button>
         <History
           history={this.props.history}
